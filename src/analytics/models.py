@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.db import models
 
+from .signals import user_logged_in
+
 # Create your models here.
 class UserSession(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
@@ -17,3 +19,11 @@ class UserSession(models.Model):
             return str(self.city_data)
         else:
             return self.user.username
+
+def user_logged_in_receiver(sender, request, *args, **kwargs):
+    user = sender
+    request # we need to parse this to get the IP Address
+    #UserSession.objects.create()
+
+# we make the receiver connection
+user_logged_in.connect(user_logged_in_receiver)
