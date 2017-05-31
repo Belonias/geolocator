@@ -1,5 +1,5 @@
 # new in django 1.11
-from django.contrib.auth.views import LoginView as DefaultLoginView
+from django.contrib.auth.views import LogoutView as DefaultLogoutView, LoginView as DefaultLoginView
 from django.shortcuts import render
 from analytics.signals import user_logged_in
 
@@ -17,3 +17,7 @@ class LoginView(DefaultLoginView):
             # use signal
             user_logged_in.send(self.request.user, request=self.request)
         return done_
+
+
+class LogoutView(DefaultLogoutView):
+    pass
