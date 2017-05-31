@@ -22,7 +22,11 @@ class UserSession(models.Model):
 
 def user_logged_in_receiver(sender, request, *args, **kwargs):
     user = sender
-    request # we need to parse this to get the IP Address
+    print(user)
+    print(request.session.session_key)
+    session = request.session.session_key
+    UserSession.objects.create(user=user, session_key=session)
+    #request # we need to parse this to get the IP Address
     #UserSession.objects.create()
 
 # we make the receiver connection
