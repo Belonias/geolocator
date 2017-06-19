@@ -29,6 +29,7 @@ ALLOWED_HOSTS = ['0.0.0.0']
 
 # GeoIP settings
 GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')
+GEO_DEFAULT_IP = '72.14.207.99'
 
 # Logout redirect
 LOGOUT_REDIRECT_URL = '/login/'
