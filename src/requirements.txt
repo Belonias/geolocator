@@ -1,7 +1,7 @@
 appdirs==1.4.3
 certifi==2017.4.17
 chardet==3.0.4
-Django==1.11
+Django==1.11.28
 geoip2==2.5.0
 idna==2.5
 maxminddb==1.3.0
